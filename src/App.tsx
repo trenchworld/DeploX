@@ -2,11 +2,8 @@ import React, { useEffect, useState } from 'react';
 import {
   Rocket,
   Wallet,
-  Code2,
-  Cpu,
   LogOut,
 } from 'lucide-react';
-import { TwitterFeedMock } from './components/TwitterFeedMock';
 import { PlayerCardEmbed } from './components/PlayerCardEmbed';
 import { TokenDeployerModal } from './components/TokenDeployerModal';
 import { TokenExplorerModal } from './components/TokenExplorerModal';
@@ -18,7 +15,6 @@ export function App() {
   const [tokens, setTokens] = useState<TokenData[]>(bondingCurve.getTokens());
   const [selectedToken, setSelectedToken] = useState<TokenData>(tokens[0]);
   
-  const [viewMode, setViewMode] = useState<'feed' | 'embed_only'>('feed');
   const [deployModalOpen, setDeployModalOpen] = useState(false);
   const [explorerModalOpen, setExplorerModalOpen] = useState(false);
 
@@ -99,31 +95,7 @@ export function App() {
           </div>
         </div>
 
-        {/* View mode switcher */}
-        <div style={{
-          display: 'flex',
-          background: '#06080d',
-          padding: '4px',
-          border: '2px solid #000',
-          gap: '6px',
-        }}>
-          <button
-            onClick={() => setViewMode('feed')}
-            className={`pixel-btn ${viewMode === 'feed' ? 'pixel-btn-emerald' : ''}`}
-            style={{ fontSize: '0.55rem', padding: '6px 12px' }}
-          >
-            𝕏 FEED VIEW
-          </button>
 
-          <button
-            onClick={() => setViewMode('embed_only')}
-            className={`pixel-btn ${viewMode === 'embed_only' ? 'pixel-btn-emerald' : ''}`}
-            style={{ fontSize: '0.55rem', padding: '6px 12px' }}
-          >
-            <Cpu size={12} style={{ display: 'inline', marginRight: '4px' }} />
-            CARD EMBED
-          </button>
-        </div>
 
         {/* Super Simple Connect / Disconnect Wallet */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -198,10 +170,16 @@ export function App() {
         </div>
       </header>
 
-      {/* Main Content Area */}
-      <main style={{ flex: 1, padding: '0' }}>
-        {viewMode === 'feed' ? (
-          <TwitterFeedMock
+      {/* Main Content Area - Direct Clean In-Feed Embed */}
+      <main style={{
+        flex: 1,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '24px 16px',
+      }}>
+        <div style={{ width: '100%', maxWidth: '540px' }}>
+          <PlayerCardEmbed
             selectedToken={selectedToken}
             tokens={tokens}
             onSelectToken={setSelectedToken}
@@ -210,23 +188,7 @@ export function App() {
             wallet={wallet}
             onConnectWallet={handleConnect}
           />
-        ) : (
-          <div style={{
-            maxWidth: '560px',
-            margin: '30px auto',
-            padding: '16px',
-          }}>
-            <PlayerCardEmbed
-              selectedToken={selectedToken}
-              tokens={tokens}
-              onSelectToken={setSelectedToken}
-              onOpenDeploy={() => setDeployModalOpen(true)}
-              onOpenExplorer={() => setExplorerModalOpen(true)}
-              wallet={wallet}
-              onConnectWallet={handleConnect}
-            />
-          </div>
-        )}
+        </div>
       </main>
 
       {/* Launched Coins Directory & Search Modal */}
