@@ -1,0 +1,197 @@
+:root {
+  /* Minecraft & Roblox cyber-pixel palette */
+  --pixel-bg: #0b0e14;
+  --pixel-surface: #141a24;
+  --pixel-surface-raised: #1c2433;
+  --pixel-dark-edge: #07090d;
+  --pixel-highlight-edge: #2e3b52;
+
+  --pixel-green: #38df7b;        /* Minecraft Emerald / Solana neon */
+  --pixel-green-shadow: #198e47;
+  --pixel-cyan: #30d5c8;         /* Diamond pickaxe / Solana cyan */
+  --pixel-cyan-shadow: #12827a;
+  --pixel-purple: #a855f7;       /* Enchantment glint / Obsidian */
+  --pixel-purple-shadow: #6b21a8;
+  --pixel-gold: #ffb800;         /* Golden apple / Gold ingot */
+  --pixel-gold-shadow: #b38000;
+  --pixel-red: #ff4757;          /* Redstone */
+  --pixel-red-shadow: #b31e2b;
+
+  --text-main: #f0f4fc;
+  --text-muted: #8b9bb4;
+  --text-dim: #54647d;
+
+  --font-pixel: 'Press Start 2P', monospace;
+  --font-sub: 'Silkscreen', cursive;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  image-rendering: pixelated;
+}
+
+body {
+  font-family: var(--font-sub), var(--font-sans);
+  background-color: var(--pixel-bg);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image: 
+    linear-gradient(rgba(20, 241, 149, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 241, 149, 0.03) 1px, transparent 1px),
+    radial-gradient(circle at 15% 15%, rgba(56, 223, 123, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(168, 85, 247, 0.08) 0%, transparent 40%);
+  background-size: 24px 24px, 24px 24px, 100% 100%, 100% 100%;
+}
+
+/* Pixel block borders with beveled 3D look (Minecraft / Roblox UI style) */
+.pixel-box {
+  background: var(--pixel-surface);
+  border: 3px solid #000;
+  box-shadow: 
+    inset 2px 2px 0px rgba(255, 255, 255, 0.15),
+    inset -2px -2px 0px rgba(0, 0, 0, 0.6),
+    0px 4px 0px #000;
+  position: relative;
+}
+
+.pixel-box-green {
+  background: var(--pixel-surface);
+  border: 3px solid #000;
+  box-shadow: 
+    inset 2px 2px 0px var(--pixel-green),
+    inset -2px -2px 0px var(--pixel-green-shadow),
+    0px 4px 0px #000;
+}
+
+/* 3D Pixel Clickable Buttons with depressing depth */
+.pixel-btn {
+  font-family: var(--font-pixel);
+  font-size: 0.65rem;
+  letter-spacing: 0.02em;
+  padding: 10px 14px;
+  color: #fff;
+  border: 2px solid #000;
+  background: var(--pixel-surface-raised);
+  box-shadow: 
+    inset 2px 2px 0px rgba(255, 255, 255, 0.2),
+    inset -2px -2px 0px rgba(0, 0, 0, 0.6),
+    0px 4px 0px #000;
+  cursor: pointer;
+  transform: translateY(0px);
+  transition: all 0.06s ease;
+  user-select: none;
+}
+
+.pixel-btn:hover {
+  filter: brightness(1.15);
+}
+
+.pixel-btn:active {
+  transform: translateY(3px);
+  box-shadow: 
+    inset 2px 2px 0px rgba(0, 0, 0, 0.6),
+    inset -2px -2px 0px rgba(255, 255, 255, 0.2),
+    0px 1px 0px #000;
+}
+
+/* Emerald green button variant */
+.pixel-btn-emerald {
+  background: var(--pixel-green);
+  color: #05160b;
+  box-shadow: 
+    inset 2px 2px 0px #a3ffc7,
+    inset -2px -2px 0px var(--pixel-green-shadow),
+    0px 4px 0px #000;
+}
+
+.pixel-btn-red {
+  background: var(--pixel-red);
+  color: #fff;
+  box-shadow: 
+    inset 2px 2px 0px #ffa3ab,
+    inset -2px -2px 0px var(--pixel-red-shadow),
+    0px 4px 0px #000;
+}
+
+.pixel-btn-purple {
+  background: var(--pixel-purple);
+  color: #fff;
+  box-shadow: 
+    inset 2px 2px 0px #d8b4fe,
+    inset -2px -2px 0px var(--pixel-purple-shadow),
+    0px 4px 0px #000;
+}
+
+.pixel-btn-gold {
+  background: var(--pixel-gold);
+  color: #332200;
+  box-shadow: 
+    inset 2px 2px 0px #ffe17d,
+    inset -2px -2px 0px var(--pixel-gold-shadow),
+    0px 4px 0px #000;
+}
+
+/* Pixel Input Fields */
+.pixel-input {
+  background: #080a0f;
+  color: #fff;
+  border: 2px solid #000;
+  box-shadow: 
+    inset 2px 2px 0px rgba(0, 0, 0, 0.9),
+    inset -1px -1px 0px rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  outline: none;
+}
+
+.pixel-input:focus {
+  border-color: var(--pixel-green);
+  box-shadow: 
+    inset 2px 2px 0px rgba(0, 0, 0, 0.9),
+    0px 0px 8px rgba(56, 223, 123, 0.4);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #080a0f;
+  border-left: 2px solid #000;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--pixel-surface-raised);
+  border: 2px solid #000;
+  box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.2);
+}
+
+/* Pixel text utilities */
+.font-pixel {
+  font-family: var(--font-pixel);
+}
+
+.font-sub {
+  font-family: var(--font-sub);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Glitch / Floating animation */
+@keyframes pixel-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+}
+
+.pixel-floating {
+  animation: pixel-float 2.5s steps(4, start) infinite;
+}
