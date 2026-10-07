@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- Outer Dark Background & Border -->
+  <rect width="512" height="512" fill="#000000" />
+  
+  <!-- Glowing Circular Rim (Minecraft / Cyber Emerald) -->
+  <circle cx="256" cy="256" r="230" fill="#0d141e" stroke="#38df7b" stroke-width="18" />
+  <circle cx="256" cy="256" r="200" fill="#141a24" stroke="#000000" stroke-width="12" />
+
+  <!-- Inner Subtle Ring -->
+  <circle cx="256" cy="256" r="170" fill="#090d14" />
+
+  <!-- Center Play Button Triangle (3D Beveled Pixel Style) -->
+  <polygon points="210,150 370,256 210,362" fill="#38df7b" stroke="#000000" stroke-width="10" />
+  <polygon points="215,165 350,256 215,347" fill="#a3ffc7" opacity="0.3" />
+  
+  <!-- "𝕏" Branding in bottom center -->
+  <text x="256" y="445" fill="#38df7b" font-family="'Press Start 2P', monospace, sans-serif" font-size="28" font-weight="bold" text-anchor="middle">DEPLOX</text>
+</svg>
