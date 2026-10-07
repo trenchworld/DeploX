@@ -4,15 +4,11 @@
   "framework": "vite",
   "rewrites": [
     {
-      "source": "/actions.json",
-      "destination": "/actions.json"
-    },
-    {
       "source": "/api/(.*)",
       "destination": "/api/$1"
     },
     {
-      "source": "/(.*)",
+      "source": "/((?!actions\\.json|favicon\\.svg|icons\\.svg|assets/).*)",
       "destination": "/index.html"
     }
   ],
